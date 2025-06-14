@@ -1,10 +1,12 @@
-/* Variables */
+/* style.css */
 :root {
     --primary-color: #5865F2; /* Warna biru Discord */
     --secondary-color: #2C2F33;
     --accent-color: #7289DA;
     --text-color: #FFFFFF;
     --dark-bg: #23272A;
+    --youtube-red: #FF0000;
+    --youtube-dark-red: #CC0000;
 }
 
 /* Base Styles */
@@ -21,33 +23,6 @@ body {
     max-width: 800px;
     margin: 0 auto;
     padding: 0 20px;
-}
-
-h1 {
-    color: var(--primary-color);
-    margin-top: 1rem;
-    font-size: 2.5rem;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-}
-
-h2 {
-    color: var(--primary-color);
-    text-align: center;
-    margin-bottom: 1.5rem;
-    position: relative;
-    padding-bottom: 10px;
-}
-
-h2::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 3px;
-    background-color: var(--primary-color);
-    border-radius: 3px;
 }
 
 /* Header Styles */
@@ -79,11 +54,50 @@ header {
     object-fit: cover;
 }
 
-/* Feature Section */
+/* Typography */
+h1 {
+    color: var(--primary-color);
+    margin-top: 1rem;
+    font-size: 2.5rem;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+h2 {
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: var(--primary-color);
+    border-radius: 3px;
+}
+
+/* Sections */
 .feature-section {
     margin: 3rem 0;
 }
 
+.team-section {
+    margin: 3rem 0;
+    text-align: center;
+}
+
+.social-links {
+    text-align: center;
+    margin: 3rem 0;
+}
+
+/* Feature Cards */
 .feature {
     background-color: var(--secondary-color);
     border-radius: 10px;
@@ -108,12 +122,7 @@ header {
     text-align: center;
 }
 
-/* Team Section */
-.team-section {
-    margin: 3rem 0;
-    text-align: center;
-}
-
+/* Team Grid */
 .team-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -147,11 +156,6 @@ header {
 }
 
 /* Social Links */
-.social-links {
-    text-align: center;
-    margin: 3rem 0;
-}
-
 .social-links-container {
     display: flex;
     justify-content: center;
@@ -181,11 +185,11 @@ header {
 }
 
 .youtube-link {
-    background-color: #FF0000;
+    background-color: var(--youtube-red);
 }
 
 .youtube-link:hover {
-    background-color: #CC0000;
+    background-color: var(--youtube-dark-red);
 }
 
 /* Discord CTA */
@@ -199,7 +203,7 @@ header {
 }
 
 .discord-button {
-    background-color: #5865F2;
+    background-color: var(--primary-color);
     color: white;
     padding: 15px 30px;
     border-radius: 8px;
@@ -231,7 +235,7 @@ footer {
     border-top: 5px solid var(--primary-color);
 }
 
-/* Responsive Styles */
+/* Responsive Design */
 @media (max-width: 600px) {
     .feature {
         flex-direction: column;
@@ -250,4 +254,20 @@ footer {
     h1 {
         font-size: 2rem;
     }
+    
+    .logo {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+/* Animations */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+.floating {
+    animation: float 3s ease-in-out infinite;
 }
