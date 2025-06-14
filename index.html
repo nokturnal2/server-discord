@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Komunitas Nokturnal2 - Server Discord untuk berkreasi dan berkolaborasi">
+    <title>Nokturnal2 - Komunitas Kreatif Discord</title>
+    <style>
+        :root {
+            --primary-color: #5865F2; /* Warna biru Discord */
+            --secondary-color: #2C2F33;
+            --accent-color: #7289DA;
+            --text-color: #FFFFFF;
+            --dark-bg: #23272A;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--dark-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--dark-bg) 100%);
+            padding: 2rem 0;
+            text-align: center;
+            border-bottom: 5px solid var(--primary-color);
+        }
+        
+        .logo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid var(--primary-color);
+            margin: 0 auto;
+            background-color: var(--dark-bg);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        
+        .logo:hover {
+            transform: rotate(10deg) scale(1.05);
+        }
+        
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        h1 {
+            color: var(--primary-color);
+            margin-top: 1rem;
+            font-size: 2.5rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        h2 {
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary-color);
+            border-radius: 3px;
+        }
+        
+        .feature-section {
+            margin: 3rem 0;
+        }
+        
+        .feature {
+            background-color: var(--secondary-color);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .feature:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0,0,0,0.2);
+        }
+        
+        .feature-icon {
+            font-size: 2rem;
+            margin-right: 20px;
+            color: var(--primary-color);
+            min-width: 50px;
+            text-align: center;
+        }
+        
+        .team-section {
+            margin: 3rem 0;
+            text-align: center;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .team-member {
+            background-color: var(--secondary-color);
+            border-radius: 10px;
+            padding: 20px;
+            transition: transform 0.3s;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-5px);
+        }
+        
+        .member-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            margin: 0 auto 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .social-links {
+            text-align: center;
+            margin: 3rem 0;
+        }
+        
+        .social-links-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            font-size: 1.5rem;
+            transition: all 0.3s;
+            text-decoration: none;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .social-link:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 10px rgba(0,0,0,0.2);
+        }
+        
+        footer {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--dark-bg) 100%);
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+            border-top: 5px solid var(--primary-color);
+        }
+        
+        .discord-cta {
+            text-align: center;
+            margin: 3rem 0;
+            padding: 2rem 0;
+            background-color: rgba(88, 101, 242, 0.1);
+            border-radius: 10px;
+            border: 2px dashed var(--primary-color);
+        }
+        
+        .discord-button {
+            background-color: #5865F2;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            display: inline-block;
+            margin: 15px 0;
+            transition: all 0.3s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .discord-button:hover {
+            background-color: #4752C4;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+        }
+        
+        .discord-button i {
+            margin-right: 10px;
+        }
+        
+        @media (max-width: 600px) {
+            .feature {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .feature-icon {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+            
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="https://i.imgur.com/06v6oxT.jpeg" type="image/jpeg">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="https://i.imgur.com/06v6oxT.jpeg" alt="Logo Nokturnal2">
+            </div>
+            <h1>Nokturnal2</h1>
+            <p>Komunitas kreatif untuk berkolaborasi dan berkreasi bersama</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <section class="discord-cta">
+            <h2>Gabung Server Kami Sekarang!</h2>
+            <p>Bergabunglah dengan anggota kreatif lainnya</p>
+            <a href="https://discord.com/channels/1371853880857591878/1379320883407093781/1379422707078271066" class="discord-button" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-discord"></i> Join Discord
+            </a>
+        </section>
+        
+        <section class="feature-section">
+            <h2>Keunggulan Server Kami</h2>
+            
+            <div class="feature">
+                <div class="feature-icon"><i class="fas fa-comments"></i></div>
+                <div>
+                    <h3>Diskusi Seru</h3>
+                    <p>Nikmati berbagai channel diskusi tentang seni digital, musik, programming, dan topik menarik lainnya dengan anggota komunitas yang ramah dan berpengetahuan luas.</p>
+                </div>
+            </div>
+            
+            <div class="feature">
+                <div class="feature-icon"><i class="fas fa-calendar-alt"></i></div>
+                <div>
+                    <h3>Event Menarik</h3>
+                    <p>Ikuti event mingguan seperti art contest, game night, dan workshop kreatif dengan hadiah menarik untuk anggota aktif.</p>
+                </div>
+            </div>
+            
+            <div class="feature">
+                <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                <div>
+                    <h3>Komunitas Aman</h3>
+                    <p>Server dengan moderasi ketat dan rules yang jelas untuk menjaga kenyamanan semua anggota dalam berkreasi dan berkolaborasi.</p>
+                </div>
+            </div>
+            
+            <div class="feature">
+                <div class="feature-icon"><i class="fas fa-users"></i></div>
+                <div>
+                    <h3>Kolaborasi Kreatif</h3>
+                    <p>Temukan partner untuk proyek kreatif Anda, baik dalam bidang seni, musik, programming, atau konten kreatif lainnya.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="team-section">
+            <h2>Tim Kami</h2>
+            <p>Kenali tim dibalik Nokturnal2 yang siap membantu Anda</p>
+            
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-avatar"><i class="fas fa-crown"></i></div>
+                    <h3>Pemilik Server</h3>
+                    <p>Rex_narei</p>
+                </div>
+                
+                <div class="team-member">
+                    <div class="member-avatar"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Head Moderator</h3>
+                    <p>Rex_narei</p>
+                    <p>Shunsatsumaru</p>
+                </div>
+                
+                <div class="team-member">
+                    <div class="member-avatar"><i class="fas fa-tools"></i></div>
+                    <h3>Admin</h3>
+                    <p>Leohiko</p>
+                    <p>Rex</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="social-links">
+            <h2>Follow Kami di Media Sosial</h2>
+            <p>Jangan lewatkan update terbaru dari komunitas kami</p>
+            
+            <div class="social-links-container">
+                <a href="https://instagram.com/Nokturnal2_official" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://tiktok.com/@nokturnal2_official" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+                <a href="https://x.com/Nokturnal2_on" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://discord.com/channels/1371853880857591878/1379320883407093781/1379422707078271066" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Discord">
+                    <i class="fab fa-discord"></i>
+                </a>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Nokturnal2 Community. All rights reserved.</p>
+            <p>Made with <i class="fas fa-heart" style="color: #ff4d4d;"></i> by Nokturnal2 Team</p>
+        </div>
+    </footer>
+</body>
+</html>
